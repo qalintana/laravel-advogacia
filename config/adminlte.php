@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Larafood',
+    'title' => 'AdminLTE 3',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Lara</b>Food',
+    'logo' => '<b>Admin</b>LTE',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'LaraFood',
+    'logo_img_alt' => 'AdminLTE',
 
     /*
     |--------------------------------------------------------------------------
@@ -231,36 +231,22 @@ return [
     */
 
     'menu' => [
-        // [
-        //     'text' => 'search',
-        //     'search' => true,
-        //     'topnav' => true,
-        // ],
         [
-            'text' => 'Planos',
-            'url'  => 'admin/plans',
-            'icon' => 'fas fa-list-alt'
-            // 'can'  => 'manage-blog',
-        ],
-        [
-            'text' => 'Perfis',
-            'url'  => 'admin/profiles',
-            'icon' => 'fas fa-address-book'
-            // 'can'  => 'manage-blog',
-        ],
-        [
-            'text' => 'Permissões',
-            'url'  => 'admin/permissions',
-            'icon' => 'fas fa-lock'
-            // 'can'  => 'manage-blog',
+            'text' => 'search',
+            'search' => true,
+            'topnav' => true,
         ],
         // [
-        //     'text'        => 'pages',
-        //     'url'         => 'admin/pages',
-        //     'icon'        => 'far fa-fw fa-file',
-        //     'label'       => 4,
-        //     'label_color' => 'success',
+        //     'text' => 'blog',
+        //     'url'  => 'admin/blog',
+        //     // 'can'  => 'manage-blog',
         // ],
+        [
+            'text'        => ' Clientes',
+            'url'         => 'admin/clients',
+            'icon'        => 'fas fa-user-tie',
+            'label_color' => 'success',
+        ],
         // ['header' => 'account_settings'],
         // [
         //     'text' => 'profile',
