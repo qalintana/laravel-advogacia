@@ -1,37 +1,111 @@
-<div class="card card-info">
-    <div class="card-header">
-        <h3 class="card-title">Horizontal Form</h3>
+{{-- $table->string('nome');
+$table->string('apelido');
+$table->string('morada');
+$table->string('nif');
+$table->string('postal')->nullable();
+$table->string('fraguesia')->nullable();
+$table->string('concelho');
+$table->string('contacto1');
+$table->string('contacto2');
+$table->string('email');
+$table->string('user_id'); --}}
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Novo Cliente</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
     </div>
-    <!-- /.card-header -->
-    <!-- form start -->
-    <form class="form-horizontal">
-        <div class="card-body">
-            <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                </div>
+    <div class="modal-body">
+      {{-- form create client --}}
+
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col-md-12">
+              <input id="nome" type="text" class="validate">
+              <label for="nome">Nome Completo</label>
             </div>
-            <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                </div>
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-field col">
+                <input id="nif" type="text" class="validate" name="nif">
+                <label for="nif">NIF</label>
+              </div>
             </div>
-            <div class="form-group row">
-                <div class="offset-sm-2 col-sm-10">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                        <label class="form-check-label" for="exampleCheck2">Remember me</label>
-                    </div>
-                </div>
+            <div class="col-md-6">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+              </div>
             </div>
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-            <button type="submit" class="btn btn-info">Sign in</button>
-            <button type="submit" class="btn btn-default float-right">Cancel</button>
-        </div>
-        <!-- /.card-footer -->
-    </form>
+
+          </div>
+          <div class="row">
+            <div class="input-field col-md-4">
+              <input id="apelido" type="text" class="validate">
+              <label for="apelido">Apelido</label>
+            </div>
+          </div>
+
+
+
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="morada" type="text" class="validate">
+              <label for="morada">Morada</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-field col s12">
+                <input id="postal" type="text" class="validate">
+                <label for="postal">Postal</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-field col s12">
+                <input id="fraquesia" type="text" class="validate">
+                <label for="fraquesia">Fraquesia</label>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-field ">
+                <input id="contacto1" type="text" class="validate">
+                <label for="contacto1">Contacto 1</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-field col">
+                <input id="contacto2" type="text" class="validate">
+                <label for="contacto2">Contacto 2</label>
+              </div>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+      {{-- End form create client --}}
+    </div>
+    <div class="modal-footer justify-content-between">
+      <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+      <button type="button" class="btn btn-primary">
+        <i class="fas fa-user">
+        </i>&nbsp; Registar
+      </button>
+    </div>
+  </div>
+  <!-- /.modal-content -->
 </div>
