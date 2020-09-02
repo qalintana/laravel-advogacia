@@ -3,38 +3,42 @@
 @section('Clientes', 'Clientes')
 
 @section('content_header')
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"> <a href="{{ route('client.create')}}">Dashboard </a></li>
+  &nbsp;&nbsp;
+  <i class="fas fa-arrow-right mt-2 text-blue"></i>
+  &nbsp;&nbsp;
+  <li class="breadcrumb-tem"> <a href="{{ route('client.create')}}"> Cadastrar cliente</a></li>
+</ol>
 
+<div class="card" style="background: #232632">
+  <div class="card-body  text-white">
+    <h3>Clientes Cadastrados</h3>
+  </div>
+</div>
 
-@stop
+@endsection
+
 
 @section('content')
 
 <div class="row">
-  <div class="row">
-    <h3 class="col card-title ml-2 mb-3">Nossos Clientes</h3>
-
-  </div>
-
   <div class="col-12">
     <div class="card">
       <div class="card-header">
 
         <div class="row">
           <div class="col-md-8 text-left white">
-            <button href="" class="text-white btn btn-secondary btn-sm" data-toggle="modal"
-              data-target="#modal-default"><i class="fas fa-plus text-white"></i> Novo
-              cliente</button>
+            <a href="{{ route('client.create')}}" class="btn btn-outline-secondary"
+              {{-- data-toggle="modal" data-target="#modal-default" --}}><i class="fas fa-plus text-dark"></i> Novo
+              cliente</a>
           </div>
 
           <div class="col-md-2 text-right ml-5">
             <div class="input-group input-group-sm " style="width: 300px;">
-
-
               <input type="text" name="table_search" class="form-control float-right" placeholder="Procurar">
 
               <div class="input-group-append">
-
-
                 <button type="submit" class="btn btn-primary btn-sm" style="background:#232632; height: 32px;"><i
                     class=" fas fa-search text-white"></i></button>
               </div>
@@ -48,42 +52,32 @@
         <table class="table table-hover text-nowrap">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>User</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Reason</th>
+              <th>NIF</th>
+              <th>Nome</th>
+              <th>Apelido</th>
+              <th>Postal</th>
+              <th>Email</th>
+              <th>Opções</th>
             </tr>
           </thead>
           <tbody>
+            @foreach ($clients as $client)
             <tr>
-              <td>183</td>
-              <td>John Doe</td>
-              <td>11-7-2014</td>
-              <td><span class="tag tag-success">Approved</span></td>
-              <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+              <td>{{$client->nif}}</td>
+              <td>{{$client->nome}}</td>
+              <td>{{$client->apelido}}</td>
+              <td>{{$client->postal}}</td>
+              <td>{{$client->email}}</td>
+              <td>
+                <a href="{{ route('client.edit', $client->id)}}" class="btn btn-primary btn-sm"> <i
+                    class="fas fa-edit"></i> </a>
+                <a href="{{ route('client.show', $client->id)}}" class="btn btn-success btn-sm"> <i
+                    class="fas fa-eye"></i> </a>
+                <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
+              </td>
             </tr>
-            <tr>
-              <td>219</td>
-              <td>Alexander Pierce</td>
-              <td>11-7-2014</td>
-              <td><span class="tag tag-warning">Pending</span></td>
-              <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-            </tr>
-            <tr>
-              <td>657</td>
-              <td>Bob Doe</td>
-              <td>11-7-2014</td>
-              <td><span class="tag tag-primary">Approved</span></td>
-              <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-            </tr>
-            <tr>
-              <td>175</td>
-              <td>Mike Doe</td>
-              <td>11-7-2014</td>
-              <td><span class="tag tag-danger">Denied</span></td>
-              <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-            </tr>
+            @endforeach
+
           </tbody>
         </table>
       </div>
@@ -95,10 +89,10 @@
 
 {{-- modals --}}
 
-<div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true" style="width: 800px">
+{{-- <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true" style="width: 800px">
   @include('clients.partials.form')
   <!-- /.modal-dialog -->
-</div>
+</div> --}}
 
 @stop
 

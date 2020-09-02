@@ -1,13 +1,20 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 
 Route::prefix('admin')->namespace('Admin')->group(function () {
 
-    Route::get('clients', 'ClientController@index')->name('client.index');
+  Route::middleware('auth')->name('client.')->prefix('clients')->group(function () {
+    Route::get('/', 'ClientController@index')->name('index');
+    Route::get('/create', 'ClientController@create')->name('create');
+    Route::get('/{id}/edit', 'ClientController@edit')->name('edit');
+    Route::get('/{id}', 'ClientController@show')->name('show');
+    Route::put('/{id}/edit', 'ClientController@update')->name('update');
+    Route::post('/create', 'ClientController@store')->name('store');
+  });
 });
 
 Auth::routes();
