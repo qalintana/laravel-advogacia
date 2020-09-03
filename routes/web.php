@@ -34,6 +34,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::delete('/{id}/delete', 'EscritoryController@destroy')->name('destroy');
     Route::post('/create', 'EscritoryController@store')->name('store');
   });
+
   /**
    * Tipos de processos
    */
@@ -46,6 +47,20 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/{id}/delete', 'TypeController@delete')->name('delete');
     Route::delete('/{id}/delete', 'TypeController@destroy')->name('destroy');
     Route::post('/create', 'TypeController@store')->name('store');
+  });
+
+  /**
+   * Tipos de processos
+   */
+  Route::middleware('auth')->name('state.')->prefix('states')->group(function () {
+    Route::get('/', 'StateController@index')->name('index');
+    Route::get('/create', 'StateController@create')->name('create');
+    Route::get('/{id}/edit', 'StateController@edit')->name('edit');
+    Route::get('/{id}', 'StateController@show')->name('show');
+    Route::put('/{id}/edit', 'StateController@update')->name('update');
+    Route::get('/{id}/delete', 'StateController@delete')->name('delete');
+    Route::delete('/{id}/delete', 'StateController@destroy')->name('destroy');
+    Route::post('/create', 'StateController@store')->name('store');
   });
 });
 

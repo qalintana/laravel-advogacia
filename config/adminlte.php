@@ -259,6 +259,12 @@ return [
       'icon'        => 'fas fa-swatchbook',
       'label_color' => 'success',
     ],
+    [
+      'text'        => 'Estado de Processos',
+      'url'         => 'admin/states',
+      'icon'        => 'fas fa-spinner',
+      'label_color' => 'success',
+    ],
     // ['header' => 'account_settings'],
     // [
     //     'text' => 'profile',
