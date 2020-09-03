@@ -271,6 +271,12 @@ return [
       'icon'        => 'fas fa-user-shield',
       'label_color' => 'success',
     ],
+    [
+      'text'        => 'Fonte de despesas',
+      'url'         => 'admin/fonts',
+      'icon'        => 'fas fa-hand-holding-usd',
+      'label_color' => 'success',
+    ],
     // ['header' => 'account_settings'],
     // [
     //     'text' => 'profile',

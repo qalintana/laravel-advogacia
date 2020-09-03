@@ -76,6 +76,20 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::delete('/{id}/delete', 'AdvocateController@destroy')->name('destroy');
     Route::post('/create', 'AdvocateController@store')->name('store');
   });
+
+  /**
+   * Fonte das despesas
+   */
+  Route::middleware('auth')->name('font.')->prefix('fonts')->group(function () {
+    Route::get('/', 'FontController@index')->name('index');
+    Route::get('/create', 'FontController@create')->name('create');
+    Route::get('/{id}/edit', 'FontController@edit')->name('edit');
+    Route::get('/{id}', 'FontController@show')->name('show');
+    Route::put('/{id}/edit', 'FontController@update')->name('update');
+    Route::get('/{id}/delete', 'FontController@delete')->name('delete');
+    Route::delete('/{id}/delete', 'FontController@destroy')->name('destroy');
+    Route::post('/create', 'FontController@store')->name('store');
+  });
 });
 
 Auth::routes();
