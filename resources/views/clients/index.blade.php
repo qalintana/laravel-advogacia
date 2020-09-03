@@ -29,8 +29,9 @@
 
         <div class="row">
           <div class="col-md-8 text-left white">
-            <a href="{{ route('client.create')}}" class="btn btn-outline-secondary"
-              {{-- data-toggle="modal" data-target="#modal-default" --}}><i class="fas fa-plus text-dark"></i> Novo
+            <a href="{{ route('client.create')}}" class="btn btn-primary"
+              {{-- data-toggle="modal" data-target="#modal-default" --}}><i class="fas fa-plus-circle text-white"></i>
+              Novo
               cliente</a>
           </div>
 
@@ -73,7 +74,8 @@
                     class="fas fa-edit"></i> </a>
                 <a href="{{ route('client.show', $client->id)}}" class="btn btn-success btn-sm"> <i
                     class="fas fa-eye"></i> </a>
-                <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
+                <a href="{{ route('client.delete', $client->id)}}" class="btn btn-danger btn-sm"> <i
+                    class="fas fa-trash"></i> </a>
               </td>
             </tr>
             @endforeach

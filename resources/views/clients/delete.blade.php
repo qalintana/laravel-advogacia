@@ -13,10 +13,10 @@
 
 <div class="card text-white" style="background: #232632">
   <div class="card-body col-md-12 text-center">
-    <h3>Detalhes do cliente {{ $client->nome }}</h3>
+    <h3>Deletar cliente</h3>
+
   </div>
 </div>
-
 @endsection
 
 @section('content')
@@ -27,28 +27,25 @@
       <div class="row">
         <div class="card-body">
           {{-- form create client --}}
-          <div class="text-center">
-            <p> <strong>Nome Completo: </strong> {{$client->nome}}</p>
-            <p> <strong>Apelido: </strong> {{$client->apelido}}</p>
-            <p> <strong>E-mail: </strong> {{$client->email}}</p>
-            <p> <strong>NIF: </strong> {{$client->nif}}</p>
-            <p> <strong>Fraguesia: </strong> {{$client->fraguesia}}</p>
-            <p> <strong>Concelho: </strong> {{$client->concelho}}</p>
-            <p> <strong>Contactos : </strong> {{$client->contacto1}}
-              {{ $client->contacto2 ? ' '.$client->contacto2 : '' }}
-            </p>
-          </div>
+          <form action="{{route('client.destroy', $client->id)}}" method="POST">
+            <h2 class=" text-center">Tem certeza que deseja eliminar o cliente {{ $client->nome }}
+            </h2>
+            <hr>
 
-          <p class="text-center">
-            <a href="{{ route('client.index')}}" class="btn btn-default btn-sm"> <i class="fas fa-list"></i>
-              Listagem geral </a>
-            <a href="{{ route('client.create')}}" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i>
-              Cadastrar </a>
-            <a href="{{ route('client.edit', $client->id)}}" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i>
-              Editar </a>
-            <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i>Eliminar </a>
-            {{-- End form create client --}}
-          </p>
+            @method('DELETE')
+
+            @csrf
+            <div class="row justify-content-center flex-row">
+              <button type="submit" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> Sim </button>
+              &nbsp;
+              <a href="{{ route('client.index')}}" class="btn btn-primary btn-sm"> <i class="fas fa-not-equal"></i>
+                Não </a>
+              &nbsp;
+              <a href="{{ route('client.show', $client->id)}}" class="btn btn-info btn-sm"> <i class="fas details"></i>
+                Ver detalhes </a>
+            </div>
+
+          </form>
 
         </div>
       </div>

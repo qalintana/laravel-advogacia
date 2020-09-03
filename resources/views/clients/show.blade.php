@@ -26,6 +26,7 @@
     <div class="card card-blue">
       <div class="row">
         <div class="card-body">
+
           {{-- form create client --}}
           <div class="text-center">
             <p> <strong>Nome Completo: </strong> {{$client->nome}}</p>
@@ -46,7 +47,8 @@
               Cadastrar </a>
             <a href="{{ route('client.edit', $client->id)}}" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i>
               Editar </a>
-            <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i>Eliminar </a>
+            <a href="{{ route('client.delete', $client->id)}}" class="btn btn-danger btn-sm"> <i
+                class="fas fa-trash"></i>Eliminar </a>
             {{-- End form create client --}}
           </p>
 

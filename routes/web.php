@@ -13,6 +13,8 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/{id}/edit', 'ClientController@edit')->name('edit');
     Route::get('/{id}', 'ClientController@show')->name('show');
     Route::put('/{id}/edit', 'ClientController@update')->name('update');
+    Route::get('/{id}/delete', 'ClientController@delete')->name('delete');
+    Route::delete('/{id}/delete', 'ClientController@destroy')->name('destroy');
     Route::post('/create', 'ClientController@store')->name('store');
   });
 });

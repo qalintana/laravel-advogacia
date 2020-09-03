@@ -16,11 +16,13 @@ class ClientController extends Controller
     $this->repository = $client;
   }
 
+
   public function index()
   {
     $clients = $this->repository->paginate(15);
     return view('clients.index', compact('clients'));
   }
+
 
   public function create()
   {
@@ -35,6 +37,7 @@ class ClientController extends Controller
     return redirect()->route('client.index');
   }
 
+
   public function edit($id)
   {
     if (!$client = $this->repository->find($id)) {
@@ -43,6 +46,7 @@ class ClientController extends Controller
 
     return view('clients.edit', compact('client'));
   }
+
 
   public function show($id)
   {
@@ -53,6 +57,7 @@ class ClientController extends Controller
     return view('clients.show', compact('client'));
   }
 
+
   public function update(StoreUpdateClient $request, $id)
   {
     if (!$client = $this->repository->find($id)) {
@@ -60,6 +65,25 @@ class ClientController extends Controller
     }
 
     $client->update($request->all());
+    return redirect()->route('client.index');
+  }
+
+  public function delete($id)
+  {
+    if (!$client = $this->repository->find($id)) {
+      return redirect()->back();
+    }
+    return view('clients.delete', compact('client'));
+  }
+
+
+  public function destroy($id)
+  {
+    if (!$client = $this->repository->find($id)) {
+      return redirect()->back();
+    }
+    $client->delete();
+
     return redirect()->route('client.index');
   }
 }
