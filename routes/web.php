@@ -90,6 +90,19 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::delete('/{id}/delete', 'FontController@destroy')->name('destroy');
     Route::post('/create', 'FontController@store')->name('store');
   });
+  /**
+   * Avenças
+   */
+  Route::middleware('auth')->name('avence.')->prefix('avences')->group(function () {
+    Route::get('/', 'AvenceController@index')->name('index');
+    Route::get('/create', 'AvenceController@create')->name('create');
+    Route::get('/{id}/edit', 'AvenceController@edit')->name('edit');
+    Route::get('/{id}', 'AvenceController@show')->name('show');
+    Route::put('/{id}/edit', 'AvenceController@update')->name('update');
+    Route::get('/{id}/delete', 'AvenceController@delete')->name('delete');
+    Route::delete('/{id}/delete', 'AvenceController@destroy')->name('destroy');
+    Route::post('/create', 'AvenceController@store')->name('store');
+  });
 });
 
 Auth::routes();

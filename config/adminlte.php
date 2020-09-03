@@ -277,6 +277,12 @@ return [
       'icon'        => 'fas fa-hand-holding-usd',
       'label_color' => 'success',
     ],
+    [
+      'text'        => 'Gestão de Avenças',
+      'url'         => 'admin/avences',
+      'icon'        => 'fas fa-comments-dollar',
+      'label_color' => 'success',
+    ],
     // ['header' => 'account_settings'],
     // [
     //     'text' => 'profile',
