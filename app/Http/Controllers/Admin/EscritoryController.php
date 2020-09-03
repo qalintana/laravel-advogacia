@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class EscritoryController extends Controller
 {
+
   private $repository;
 
   public function __construct(Escritory $escritory)

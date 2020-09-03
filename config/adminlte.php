@@ -253,6 +253,12 @@ return [
       'icon'        => 'fas fa-home',
       'label_color' => 'success',
     ],
+    [
+      'text'        => 'Tipos de Processos',
+      'url'         => 'admin/types',
+      'icon'        => 'fas fa-swatchbook',
+      'label_color' => 'success',
+    ],
     // ['header' => 'account_settings'],
     // [
     //     'text' => 'profile',
