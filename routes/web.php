@@ -62,6 +62,20 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::delete('/{id}/delete', 'StateController@destroy')->name('destroy');
     Route::post('/create', 'StateController@store')->name('store');
   });
+
+  /**
+   * Advogados
+   */
+  Route::middleware('auth')->name('advocate.')->prefix('advocates')->group(function () {
+    Route::get('/', 'AdvocateController@index')->name('index');
+    Route::get('/create', 'AdvocateController@create')->name('create');
+    Route::get('/{id}/edit', 'AdvocateController@edit')->name('edit');
+    Route::get('/{id}', 'AdvocateController@show')->name('show');
+    Route::put('/{id}/edit', 'AdvocateController@update')->name('update');
+    Route::get('/{id}/delete', 'AdvocateController@delete')->name('delete');
+    Route::delete('/{id}/delete', 'AdvocateController@destroy')->name('destroy');
+    Route::post('/create', 'AdvocateController@store')->name('store');
+  });
 });
 
 Auth::routes();

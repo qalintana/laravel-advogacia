@@ -265,6 +265,12 @@ return [
       'icon'        => 'fas fa-spinner',
       'label_color' => 'success',
     ],
+    [
+      'text'        => 'Advogados',
+      'url'         => 'admin/advocates',
+      'icon'        => 'fas fa-user-shield',
+      'label_color' => 'success',
+    ],
     // ['header' => 'account_settings'],
     // [
     //     'text' => 'profile',

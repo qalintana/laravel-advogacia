@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreUpdateEscritory;
 use App\Http\Controllers\Controller;
-use App\Models\Escritory;
+use App\Models\escritory;
 use Illuminate\Http\Request;
 
 class EscritoryController extends Controller
 {
 
   private $repository;
+
 
   public function __construct(Escritory $escritory)
   {
