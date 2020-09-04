@@ -11,11 +11,11 @@
   <li class="breadcrumb-tem"> <a href="{{ route('client.index')}}"> Clientes</a></li>
 </ol>
 
-<div class="card text-white" style="background: #232632">
+{{-- <div class="card text-white" style="background: #232632">
   <div class="card-body col-md-12 text-center">
     <h3>Detalhes do cliente {{ $client->nome }}</h3>
-  </div>
 </div>
+</div> --}}
 
 @endsection
 

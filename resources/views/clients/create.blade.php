@@ -9,18 +9,23 @@
   <i class="fas fa-arrow-right mt-2 text-blue"></i>
   &nbsp;&nbsp;
   <li class="breadcrumb-tem"> <a href="{{ route('client.index')}}"> Clientes</a></li>
+  &nbsp;&nbsp;
+  <i class="fas fa-arrow-right mt-2 text-blue"></i>
+  &nbsp;&nbsp;
+  <li class="breadcrumb-tem text-bold"> <a href="{{ route('client.index')}}"> Registo de novo cliente</a></li>
+
 </ol>
 
-<div class="card text-white" style="background: #232632">
+{{-- <div class="card text-white" style="background: #232632">
   <div class="card-body col-md-12">
     <h3>Cadastro de novo Cliente</h3>
   </div>
-</div>
+</div> --}}
 @endsection
 
 
 @section('content')
-<div class="row">
+<div class="row mt-5">
   <div class="col-md-12" style="margin-top: -25px">
     <div class="card card-blue">
       <div class="row">

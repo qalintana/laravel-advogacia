@@ -11,18 +11,18 @@
   <li class="breadcrumb-tem"> <a href="{{ route('client.create')}}"> Cadastrar cliente</a></li>
 </ol>
 
-<div class="card" style="background: #232632">
+{{-- <div class="card" style="background: #0e06b2">
   <div class="card-body  text-white">
     <h3>Clientes Cadastrados</h3>
   </div>
-</div>
+</div> --}}
 
 @endsection
 
 
 @section('content')
 
-<div class="row">
+<div class="row" style="box-shadow: 0 0 25x rgba(0,0,0,.5)">
   <div class="col-12">
     <div class="card">
       <div class="card-header">
@@ -55,7 +55,6 @@
             <tr>
               <th>NIF</th>
               <th>Nome</th>
-              <th>Apelido</th>
               <th>Postal</th>
               <th>Email</th>
               <th>Opções</th>
@@ -66,7 +65,6 @@
             <tr>
               <td>{{$client->nif}}</td>
               <td>{{$client->nome}}</td>
-              <td>{{$client->apelido}}</td>
               <td>{{$client->postal}}</td>
               <td>{{$client->email}}</td>
               <td>
