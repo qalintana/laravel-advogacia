@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('Clientes', 'Clientes')
+@section('title', 'Clientes')
 
 @section('content_header')
 <ol class="breadcrumb">
@@ -16,11 +16,10 @@
     <h3>Cadastro de novo Cliente</h3>
   </div>
 </div>
-
 @endsection
 
-@section('content')
 
+@section('content')
 <div class="row">
   <div class="col-md-12" style="margin-top: -25px">
     <div class="card card-blue">
@@ -31,9 +30,7 @@
 
           <form action="{{ route('client.store')}}" method="POST">
             @include('clients.partials.form')
-
           </form>
-
           {{-- End form create client --}}
         </div>
 

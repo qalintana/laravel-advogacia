@@ -1,5 +1,5 @@
-<aside class="main-sidebar {{ config('adminlte.classes_sidebar', 'sidebar-dark-primary  elevation-4') }}  side "
-  style="background: #232632">
+<aside class="main-sidebar  {{ config('adminlte.classes_sidebar', 'sidebar-dark-primary  elevation-4') }}  side "
+  style="background: #0e06b2">
 
   {{-- Sidebar brand logo --}}
   @if(config('adminlte.logo_img_xl'))
