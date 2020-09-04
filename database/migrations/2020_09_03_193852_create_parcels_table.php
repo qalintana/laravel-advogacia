@@ -15,7 +15,12 @@ class CreateParcelsTable extends Migration
   {
     Schema::create('parcels', function (Blueprint $table) {
       $table->id();
-      $table->$table->timestamps();
+      $table->integer('parcela');
+      $table->double('valor');
+      $table->double('desconto');
+      $table->date('data_vencimento');
+      $table->date('data_pagamento');
+      $table->timestamps();
     });
   }
   /**

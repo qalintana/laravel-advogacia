@@ -29,8 +29,8 @@
 
         <div class="row">
           <div class="col-md-8 text-left white">
-            <a href="{{ route('client.create')}}" class="btn btn-primary"
-              {{-- data-toggle="modal" data-target="#modal-default" --}}><i class="fas fa-plus-circle text-white"></i>
+            <a href="{{ route('client.create')}}" class="btn btn-outline-primary"
+              {{-- data-toggle="modal" data-target="#modal-default" --}}><i class="fas fa-plus-circle"></i>
               Novo
               cliente</a>
           </div>
@@ -52,7 +52,7 @@
       <div class=" card-body table-responsive p-0">
         <table class="table table-hover text-nowrap">
           <thead>
-            <tr>
+            <tr class="text-lightblue">
               <th>NIF</th>
               <th>Nome</th>
               <th>Postal</th>
@@ -62,17 +62,17 @@
           </thead>
           <tbody>
             @foreach ($clients as $client)
-            <tr>
+            <tr class="text-gray">
               <td>{{$client->nif}}</td>
               <td>{{$client->nome}}</td>
               <td>{{$client->postal}}</td>
               <td>{{$client->email}}</td>
               <td>
-                <a href="{{ route('client.edit', $client->id)}}" class="btn btn-primary btn-sm"> <i
+                <a href="{{ route('client.edit', $client->id)}}" class="btn btn-outline-primary btn-sm"> <i
                     class="fas fa-edit"></i> </a>
-                <a href="{{ route('client.show', $client->id)}}" class="btn btn-success btn-sm"> <i
+                <a href="{{ route('client.show', $client->id)}}" class="btn btn-outline-success btn-sm"> <i
                     class="fas fa-eye"></i> </a>
-                <a href="{{ route('client.delete', $client->id)}}" class="btn btn-danger btn-sm"> <i
+                <a href="{{ route('client.delete', $client->id)}}" class="btn btn-outline-danger btn-sm"> <i
                     class="fas fa-trash"></i> </a>
               </td>
             </tr>
