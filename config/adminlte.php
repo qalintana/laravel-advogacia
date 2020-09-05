@@ -14,7 +14,7 @@ return [
     |
     */
 
-  'title' => 'AdminLTE 3',
+  'title' => 'Advogacia',
   'title_prefix' => '',
   'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-  'logo' => '<b>Admin</b>LTE',
+  'logo' => '<b>ADVOGACIA</b>',
   'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
   'logo_img_class' => 'brand-image img-circle elevation-3',
   'logo_img_xl' => null,
   'logo_img_xl_class' => 'brand-image-xs',
-  'logo_img_alt' => 'AdminLTE',
+  'logo_img_alt' => 'Advogacia',
 
   /*
     |--------------------------------------------------------------------------
@@ -276,6 +276,12 @@ return [
       'text'        => 'Fonte de despesas',
       'url'         => 'admin/fonts',
       'icon'        => 'fas fa-hand-holding-usd',
+      'label_color' => 'success',
+    ],
+    [
+      'text'        => 'Parcelas',
+      'url'         => 'admin/parcels',
+      'icon'        => 'fas fa-splotch',
       'label_color' => 'success',
     ],
     [

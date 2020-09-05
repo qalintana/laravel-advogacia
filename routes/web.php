@@ -103,6 +103,20 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::delete('/{id}/delete', 'AvenceController@destroy')->name('destroy');
     Route::post('/create', 'AvenceController@store')->name('store');
   });
+
+  /**
+   * Avenças
+   */
+  Route::middleware('auth')->name('parcel.')->prefix('parcels')->group(function () {
+    Route::get('/', 'ParcelController@index')->name('index');
+    Route::get('/create', 'ParcelController@create')->name('create');
+    Route::get('/{id}/edit', 'ParcelController@edit')->name('edit');
+    Route::get('/{id}', 'ParcelController@show')->name('show');
+    Route::put('/{id}/edit', 'ParcelController@update')->name('update');
+    Route::get('/{id}/delete', 'ParcelController@delete')->name('delete');
+    Route::delete('/{id}/delete', 'ParcelController@destroy')->name('destroy');
+    Route::post('/create', 'ParcelController@store')->name('store');
+  });
 });
 
 Auth::routes();

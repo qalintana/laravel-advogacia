@@ -16,10 +16,15 @@ class CreateParcelsTable extends Migration
     Schema::create('parcels', function (Blueprint $table) {
       $table->id();
       $table->integer('parcela');
+      $table->unsignedBigInteger('avence_id')->nullable();
       $table->double('valor');
       $table->double('desconto');
       $table->date('data_vencimento');
       $table->date('data_pagamento');
+
+      $table->foreign('avence_id')
+        ->references('id')->on('avences')
+        ->onDelete('SET NULL')->onUpdate('CASCADE');
       $table->timestamps();
     });
   }
