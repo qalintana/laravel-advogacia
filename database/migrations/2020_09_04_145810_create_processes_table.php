@@ -25,12 +25,18 @@ class CreateProcessesTable extends Migration
       $table->string('desconto');
       $table->string('successfree');
       $table->unsignedBigInteger('client_id')->nullable();
+      $table->unsignedBigInteger('state_id')->nullable();
       $table->unsignedBigInteger('escritory_id')->nullable();
       $table->unsignedBigInteger('type_id')->nullable();
       $table->timestamps();
 
       $table->foreign('client_id')
         ->references('id')->on('clients')
+        ->onDelete('SET NULL')
+        ->onUpdate('CASCADE');
+
+      $table->foreign('state_id')
+        ->references('id')->on('states')
         ->onDelete('SET NULL')
         ->onUpdate('CASCADE');
 

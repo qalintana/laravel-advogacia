@@ -3,91 +3,106 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
+use App\Models\Escritory;
+use App\Models\State;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ProcessController extends Controller
 {
   //
 
-  private $repository, $avence;
+  private $repository, $escritory, $type, $client, $state;
 
-  public function __construct(Parcel $parcel, Avence $avence)
+  public function __construct(Process $process, Client $client, Escritory $escritory, Type $type, State $state)
   {
-    $this->repository = $parcel;
-    $this->avence = $avence;
+    $this->repository = $process;
+    $this->client = $client;
+    $this->escritory = $escritory;
+    $this->type = $type;
+    $this->state = $state;
   }
 
 
   public function index()
   {
-    $parcels = $this->repository->paginate(15);
-    return view('parcels.index', compact('parcels'));
+    $processes = $this->repository->paginate(15);
+    return view('processes.index', compact('processes'));
   }
 
 
   public function create()
   {
-    $avences = $this->avence->all(['id', 'valor_mensal']);
-    return view('parcels.create', compact('avences'));
+    $escritories = $this->escritory->all();
+    $types = $this->type->all();
+    $clients = $this->client->all();
+    $states = $this->state->all();
+    return view('processes.create', compact('clients', 'escritories', 'types', 'states'));
   }
 
   public function store(StoreUpdateParcel $request)
   {
-    if (!$parcel = $this->repository->create($request->all())) {
+    if (!$process = $this->repository->create($request->all())) {
       return redirect()->back();
     }
-    return redirect()->route('parcel.index');
+    return redirect()->route('process.index');
   }
 
 
-  public function edit($id)
-  {
-    $avences = $this->avence->all(['id', 'valor_mensal']);
-
-    if (!$parcel = $this->repository->find($id)) {
-      return redirect()->back();
-    }
-
-    return view('parcels.edit', compact('parcel', 'avences'));
-  }
 
 
   public function show($id)
   {
-    if (!$parcel = $this->repository->find($id)) {
+    if (!$process = $this->repository->find($id)) {
       return redirect()->back();
     }
 
-    return view('parcels.show', compact('parcel'));
+    return view('processes.show', compact('process'));
+  }
+
+  public function edit($id)
+  {
+    $clients = $this->client->all(['id', 'valor_mensal']);
+
+    if (!$process = $this->repository->find($id)) {
+      return redirect()->back();
+    }
+    $escritories = $this->escritory->all();
+    $types = $this->type->all();
+    $clients = $this->client->all();
+    $states = $this->state->all();
+
+    return view('processes.edit', compact('process', 'clients', 'types', 'escritories', 'states'));
   }
 
 
   public function update(StoreUpdateParcel $request, $id)
   {
-    if (!$parcel = $this->repository->find($id)) {
+    if (!$process = $this->repository->find($id)) {
       return redirect()->back();
     }
 
-    $parcel->update($request->all());
-    return redirect()->route('parcel.index');
+    $process->update($request->all());
+    return redirect()->route('process.index');
   }
 
   public function delete($id)
   {
-    if (!$parcel = $this->repository->find($id)) {
+    if (!$process = $this->repository->find($id)) {
       return redirect()->back();
     }
-    return view('parcels.delete', compact('parcel'));
+    return view('processes.delete', compact('process'));
   }
 
 
   public function destroy($id)
   {
-    if (!$parcel = $this->repository->find($id)) {
+    if (!$process = $this->repository->find($id)) {
       return redirect()->back();
     }
-    $parcel->delete();
+    $process->delete();
 
-    return redirect()->route('parcel.index');
+    return redirect()->route('process.index');
   }
 }
