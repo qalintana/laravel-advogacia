@@ -10,7 +10,6 @@ class Action extends Model
   protected $fillable = [
 
     'ato',
-    'process_id',
     'data',
     'valor',
     'valorfinal',

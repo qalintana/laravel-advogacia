@@ -261,6 +261,12 @@ return [
       'label_color' => 'success',
     ],
     [
+      'text'        => 'Actos',
+      'url'         => 'admin/actions',
+      'icon'        => 'fas fa-dailymotion',
+      'label_color' => 'success',
+    ],
+    [
       'text'        => 'Tipos de Processos',
       'url'         => 'admin/types',
       'icon'        => 'fas fa-swatchbook',

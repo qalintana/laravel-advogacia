@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateAction;
 use App\Models\Action;
 use App\Models\Process;
 use Illuminate\Http\Request;
@@ -26,7 +27,6 @@ class ActionController extends Controller
     return view('actions.index', compact('actions'));
   }
 
-
   public function create()
   {
     $processes = $this->processes->all();
@@ -34,63 +34,63 @@ class ActionController extends Controller
     return view('actions.create', compact('processes'));
   }
 
-  public function store(StoreUpdateAvence $request)
+  public function store(StoreUpdateAction $request)
   {
     if (!$action = $this->repository->create($request->all())) {
       return redirect()->back();
     }
-    return redirect()->route('avence.index');
+    return redirect()->route('action.index');
   }
 
 
   public function edit($id)
   {
-    if (!$avence = $this->repository->find($id)) {
+    if (!$action = $this->repository->find($id)) {
       return redirect()->back();
     }
 
-    $processes = $this->processes->all(['id', 'nome']);
+    $processes = $this->processes->all();
 
-    return view('actions.edit', compact('avence', 'processes'));
+    return view('actions.edit', compact('action', 'processes'));
   }
 
 
   public function show($id)
   {
-    if (!$avence = $this->repository->find($id)) {
+    if (!$action = $this->repository->find($id)) {
       return redirect()->back();
     }
 
-    return view('actions.show', compact('avence'));
+    return view('actions.show', compact('action'));
   }
 
 
-  public function update(StoreUpdateAvence $request, $id)
+  public function update(StoreUpdateAction $request, $id)
   {
-    if (!$avence = $this->repository->find($id)) {
+    if (!$action = $this->repository->find($id)) {
       return redirect()->back();
     }
 
-    $avence->update($request->all());
-    return redirect()->route('avence.index');
+    $action->update($request->all());
+    return redirect()->route('action.index');
   }
 
   public function delete($id)
   {
-    if (!$avence = $this->repository->find($id)) {
+    if (!$action = $this->repository->find($id)) {
       return redirect()->back();
     }
-    return view('actions.delete', compact('avence'));
+    return view('actions.delete', compact('action'));
   }
 
 
   public function destroy($id)
   {
-    if (!$avence = $this->repository->find($id)) {
+    if (!$action = $this->repository->find($id)) {
       return redirect()->back();
     }
-    $avence->delete();
+    $action->delete();
 
-    return redirect()->route('avence.index');
+    return redirect()->route('action.index');
   }
 }
