@@ -62,8 +62,8 @@
             @foreach ($processes as $process)
             <tr>
               <td></td>
-              <td>{{$process->valor_mensal}}</td>
-              <td>{{$process->obs}}</td>
+              <td>{{$process->valor}}</td>
+              <td>{{$process->valor_alcancado}}</td>
               <td>
                 <a href="{{ route('process.edit', $process->id)}}" class="btn btn-primary btn-sm"> <i
                     class="fas fa-edit"></i> </a>

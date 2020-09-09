@@ -34,7 +34,8 @@ class StoreUpdateProcess extends FormRequest
       'successfree' => 'required',
       'client_id' => 'required',
       'escritory_id' => 'required',
-      'type_id' => 'required'
+      'type_id' => 'required',
+      'state_id' => 'required'
     ];
   }
 }

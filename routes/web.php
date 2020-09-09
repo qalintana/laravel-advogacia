@@ -117,6 +117,20 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::delete('/{id}/delete', 'ParcelController@destroy')->name('destroy');
     Route::post('/create', 'ParcelController@store')->name('store');
   });
+
+  /**
+   * Avenças
+   */
+  Route::middleware('auth')->name('process.')->prefix('processes')->group(function () {
+    Route::get('/', 'ProcessController@index')->name('index');
+    Route::get('/create', 'ProcessController@create')->name('create');
+    Route::get('/{id}/edit', 'ProcessController@edit')->name('edit');
+    Route::get('/{id}', 'ProcessController@show')->name('show');
+    Route::put('/{id}/edit', 'ProcessController@update')->name('update');
+    Route::get('/{id}/delete', 'ProcessController@delete')->name('delete');
+    Route::delete('/{id}/delete', 'ProcessController@destroy')->name('destroy');
+    Route::post('/create', 'ProcessController@store')->name('store');
+  });
 });
 
 Auth::routes();

@@ -33,13 +33,13 @@
 
       <div class="col-md-12">
         <div class="input-field  col">
-          <select name="client_id" class="form-control">
+          <select name="type_id" class="form-control">
             <option value="">Selecione o tipo de processo</option>
             @foreach ($types as $type)
             <option value=" {{$type->id}}">{{ $type->nome }}</option>
             @endforeach
           </select>
-          @error('client_id')
+          @error('type_id')
           <p class="text-danger">Selecione um tipo de processo válido</p>
           @enderror
         </div>
@@ -61,7 +61,7 @@
 
       <div class="col-md-6">
         <div class="input-field  col">
-          <input id="valor" type="text" class="validate" name="valor" value="{{$avence->valor ??  old('valor') }}">
+          <input id="valor" type="text" class="validate" name="valor" value="{{$process->valor ??  old('valor') }}">
           <label for="valor">Valor</label>
 
           @error('valor')
@@ -73,7 +73,7 @@
       <div class="col-md-6">
         <div class="input-field  col">
           <input id="valor_alcancado" type="text" class="validate" name="valor_alcancado"
-            value="{{$avence->valor_alcancado ??  old('valor_alcancado') }}">
+            value="{{$process->valor_alcancado ??  old('valor_alcancado') }}">
           <label for="valor_alcancado">Valor Alcançado</label>
 
           @error('valor_alcancado')
@@ -85,7 +85,7 @@
       <div class="col-md-6">
         <div class="input-field  col">
           <input id="contraparte" type="text" class="validate" name="contraparte"
-            value="{{$avence->contraparte ??  old('contraparte') }}">
+            value="{{$process->contraparte ??  old('contraparte') }}">
           <label for="contraparte">Contraparte</label>
 
           @error('contraparte')
@@ -97,7 +97,7 @@
       <div class="col-md-6">
         <div class="input-field  col">
           <input id="data_abertura" type="date" class="validate" name="data_abertura"
-            value="{{$avence->data_abertura ??  old('data_abertura') }}">
+            value="{{$process->data_abertura ??  old('data_abertura') }}">
           <label for="data_abertura">Data de abertura</label>
 
           @error('data_abertura')
@@ -108,7 +108,7 @@
       <div class="col-md-6">
         <div class="input-field  col">
           <input id="data_conclusao" type="date" class="validate" name="data_conclusao"
-            value="{{$avence->data_conclusao ??  old('data_conclusao') }}">
+            value="{{$process->data_conclusao ??  old('data_conclusao') }}">
           <label for="data_conclusao">Data de conclusão</label>
 
           @error('data_conclusao')
@@ -120,7 +120,7 @@
       <div class="col-md-6">
         <div class="input-field  col">
           <input id="retencao" type="text" class="validate" name="retencao"
-            value="{{$avence->retencao ??  old('retencao') }}">
+            value="{{$process->retencao ??  old('retencao') }}">
           <label for="retencao">Retencao</label>
 
           @error('retencao')
@@ -132,7 +132,7 @@
       <div class="col-md-6">
         <div class="input-field  col">
           <input id="desconto" type="number" class="validate" name="desconto"
-            value="{{$avence->desconto ??  old('desconto') }}">
+            value="{{$process->desconto ??  old('desconto') }}">
           <label for="desconto">Desconto</label>
 
           @error('desconto')
@@ -143,11 +143,12 @@
 
       <div class="col-md-6">
         <div class="input-field  col">
-          <input id="sucessfree" type="number" class="validate" name="sucessfree"
-            value="{{$avence->sucessfree ??  old('sucessfree') }}">
-          <label for="sucessfree">Sucess free</label>
 
-          @error('sucessfree')
+          <input id="successfree" type="number" class="validate" name="successfree"
+            value="{{$process->successfree ??  old('successfree') }}">
+          <label for="successfree">Sucess free</label>
+
+          @error('successfree')
           <p class="text-danger">{{$message}}</p>
           @enderror
         </div>
@@ -159,7 +160,7 @@
   <div class="col-md-2">
     <div class="card-footer text-center">
       <button type="submit" class="btn btn-outline-primary">
-        @if (isset($avence))
+        @if (isset($process))
         <i class='fas fa-user-edit'> </i>Atualizar
         @else
         <i class='fas fa-save'> </i> Cadastrar
@@ -174,7 +175,7 @@
 
 
       @isset($avence)
-      <a href="{{ route('avence.delete', $avence->id)}}" class="btn btn-danger btn-sm"> <i
+      <a href="{{ route('avence.delete', $process->id)}}" class="btn btn-danger btn-sm"> <i
           class="fas fa-trash"></i>Eliminar</a>
       @endisset
     </div>

@@ -255,6 +255,12 @@ return [
       'label_color' => 'success',
     ],
     [
+      'text'        => ' Processos',
+      'url'         => 'admin/processes',
+      'icon'        => 'fas fa-briefcase',
+      'label_color' => 'success',
+    ],
+    [
       'text'        => 'Tipos de Processos',
       'url'         => 'admin/types',
       'icon'        => 'fas fa-swatchbook',

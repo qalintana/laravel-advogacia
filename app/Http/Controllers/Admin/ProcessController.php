@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateProcess;
 use App\Models\Client;
 use App\Models\Escritory;
 use App\Models\State;
+use App\Models\Process;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -41,8 +43,9 @@ class ProcessController extends Controller
     return view('processes.create', compact('clients', 'escritories', 'types', 'states'));
   }
 
-  public function store(StoreUpdateParcel $request)
+  public function store(StoreUpdateProcess $request)
   {
+
     if (!$process = $this->repository->create($request->all())) {
       return redirect()->back();
     }
@@ -63,7 +66,6 @@ class ProcessController extends Controller
 
   public function edit($id)
   {
-    $clients = $this->client->all(['id', 'valor_mensal']);
 
     if (!$process = $this->repository->find($id)) {
       return redirect()->back();
@@ -77,7 +79,7 @@ class ProcessController extends Controller
   }
 
 
-  public function update(StoreUpdateParcel $request, $id)
+  public function update(StoreUpdateProcess $request, $id)
   {
     if (!$process = $this->repository->find($id)) {
       return redirect()->back();

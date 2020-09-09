@@ -17,6 +17,7 @@ class Process extends Model
     'successfree',
     'client_id',
     'escritory_id',
-    'type_id'
+    'type_id',
+    'state_id'
   ];
 }
