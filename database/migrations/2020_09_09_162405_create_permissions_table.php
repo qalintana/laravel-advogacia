@@ -16,16 +16,15 @@ class CreatePermissionsTable extends Migration
     Schema::create('permissions', function (Blueprint $table) {
       $table->id();
       $table->date('data');
-      $table->unsignedSmallInteger('advocate_id')->nullable();
-      $table->unsignedSmallInteger('process_id')->nullable();
+      $table->unsignedBigInteger('advocate_id')->nullable();
+      $table->unsignedBigInteger('process_id')->nullable();
+      $table->timestamps();
 
       $table->foreign('advocate_id')->references('id')->on('advocates')->onDelete('SET NULL')
         ->onUpdate('CASCADE');
 
       $table->foreign('process_id')->references('id')->on('processes')->onDelete('SET NULL')
         ->onUpdate('CASCADE');
-
-      $table->timestamps();
     });
   }
 

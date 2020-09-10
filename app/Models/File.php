@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class File extends Model
 {
-    //
+  //
+  protected $fillable = ['nome', 'process_id'];
 }

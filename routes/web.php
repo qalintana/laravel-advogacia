@@ -159,6 +159,20 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::delete('/{id}/delete', 'ActionController@destroy')->name('destroy');
     Route::post('/create', 'ActionController@store')->name('store');
   });
+
+  /**
+   * Dispesas
+   */
+  Route::middleware('auth')->name('dispense.')->prefix('dispenses')->group(function () {
+    Route::get('/', 'DispenseController@index')->name('index');
+    Route::get('/create', 'DispenseController@create')->name('create');
+    Route::get('/{id}/edit', 'DispenseController@edit')->name('edit');
+    Route::get('/{id}', 'DispenseController@show')->name('show');
+    Route::put('/{id}/edit', 'DispenseController@update')->name('update');
+    Route::get('/{id}/delete', 'DispenseController@delete')->name('delete');
+    Route::delete('/{id}/delete', 'DispenseController@destroy')->name('destroy');
+    Route::post('/create', 'DispenseController@store')->name('store');
+  });
 });
 
 Auth::routes();

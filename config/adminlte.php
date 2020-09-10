@@ -261,6 +261,12 @@ return [
       'label_color' => 'success',
     ],
     [
+      'text'        => ' Dispesas',
+      'url'         => 'admin/dispenses',
+      'icon'        => 'fas fa-box-open',
+      'label_color' => 'success',
+    ],
+    [
       'text'        => 'Actos',
       'url'         => 'admin/actions',
       'icon'        => 'fas fa-dailymotion',

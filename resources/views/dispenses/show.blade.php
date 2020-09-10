@@ -1,19 +1,19 @@
 @extends('adminlte::page')
 
-@section('titlw', 'Actos')
+@section('titlw', 'Dispesas')
 
 @section('content_header')
 <ol class="breadcrumb">
-  <li class="breadcrumb-item"> <a href="{{ route('action.create')}}">Dashboard </a></li>
+  <li class="breadcrumb-item"> <a href="{{ route('dispense.create')}}">Dashboard </a></li>
   &nbsp;&nbsp;
   <i class="fas fa-arrow-right mt-2 text-blue"></i>
   &nbsp;&nbsp;
-  <li class="breadcrumb-tem"> <a href="{{ route('action.index')}}"> Actos</a></li>
+  <li class="breadcrumb-tem"> <a href="{{ route('dispense.index')}}"> Dispesas</a></li>
 </ol>
 
 <div class="card text-white" style="background: #232632">
   <div class="card-body col-md-12 text-center">
-    <h3>Detalhes de Actos {{ $action->valor_mensal }}</h3>
+    <h3>Detalhes de Dispesas {{ $dispense->valor_mensal }}</h3>
   </div>
 </div>
 
@@ -27,21 +27,22 @@
       <div class="row">
         <div class="card-body">
 
-          {{-- form create action --}}
+          {{-- form create dispense --}}
           <div class="text-center">
-            <p> <strong>Acto: </strong> {{$action->ato}}</p>
+            <p> <strong>Dispesa: </strong> {{$dispense->valor}}</p>
           </div>
 
           <p class="text-center">
-            <a href="{{ route('action.index')}}" class="btn btn-default btn-sm"> <i class="fas fa-list"></i>
+            <a href="{{ route('dispense.index')}}" class="btn btn-default btn-sm"> <i class="fas fa-list"></i>
               Listagem geral </a>
-            <a href="{{ route('action.create')}}" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i>
+            <a href="{{ route('dispense.create')}}" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i>
               Cadastrar </a>
-            <a href="{{ route('action.edit', $action->id)}}" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i>
+            <a href="{{ route('dispense.edit', $dispense->id)}}" class="btn btn-primary btn-sm"> <i
+                class="fas fa-edit"></i>
               Editar </a>
-            <a href="{{ route('action.delete', $action->id)}}" class="btn btn-danger btn-sm"> <i
+            <a href="{{ route('dispense.delete', $dispense->id)}}" class="btn btn-danger btn-sm"> <i
                 class="fas fa-trash"></i>Eliminar </a>
-            {{-- End form create action --}}
+            {{-- End form create dispense --}}
           </p>
 
         </div>

@@ -4,16 +4,16 @@
 
 @section('content_header')
 <ol class="breadcrumb">
-  <li class="breadcrumb-item"> <a href="{{ route('action.create')}}">Dashboard </a></li>
+  <li class="breadcrumb-item"> <a href="{{ route('dispense.create')}}">Dashboard </a></li>
   &nbsp;&nbsp;
   <i class="fas fa-arrow-right mt-2 text-blue"></i>
   &nbsp;&nbsp;
-  <li class="breadcrumb-tem"> <a href="{{ route('action.create')}}"> Cadastrar acto</a></li>
+  <li class="breadcrumb-tem"> <a href="{{ route('dispense.create')}}"> Cadastrar despesas</a></li>
 </ol>
 
 <div class="card" style="background: #232632">
   <div class="card-body  text-white">
-    <h3>Actos Cadastrados</h3>
+    <h3>Despesas Cadastrados</h3>
   </div>
 </div>
 @endsection
@@ -25,10 +25,10 @@
       <div class="card-header">
         <div class="row">
           <div class="col-md-8 text-left white">
-            <a href="{{ route('action.create')}}" class="btn btn-primary"
+            <a href="{{ route('dispense.create')}}" class="btn btn-primary"
               {{-- data-toggle="modal" data-target="#modal-default" --}}><i class="fas fa-plus-circle text-white"></i>
-              Novo
-              Acto</a>
+              Nova
+              despesa</a>
           </div>
 
           <div class="col-md-2 text-right ml-5">
@@ -56,17 +56,17 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($actions as $action)
+            @foreach ($dispenses as $dispense)
             <tr>
               <td></td>
-              <td>{{$action->ato}}</td>
-              <td>{{$action->data}}</td>
+              <td>{{$dispense->valor}}</td>
+              <td>{{$dispense->data}}</td>
               <td>
-                <a href="{{ route('action.edit', $action->id)}}" class="btn btn-primary btn-sm"> <i
+                <a href="{{ route('dispense.edit', $dispense->id)}}" class="btn btn-primary btn-sm"> <i
                     class="fas fa-edit"></i> </a>
-                <a href="{{ route('action.show', $action->id)}}" class="btn btn-success btn-sm"> <i
+                <a href="{{ route('dispense.show', $dispense->id)}}" class="btn btn-success btn-sm"> <i
                     class="fas fa-eye"></i> </a>
-                <a href="{{ route('action.delete', $action->id)}}" class="btn btn-danger btn-sm"> <i
+                <a href="{{ route('dispense.delete', $dispense->id)}}" class="btn btn-danger btn-sm"> <i
                     class="fas fa-trash"></i> </a>
               </td>
             </tr>
@@ -84,7 +84,7 @@
 {{-- modals --}}
 
 {{-- <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true" style="width: 800px">
-  @include('actions.partials.form')
+  @include('dispenses.partials.form')
   <!-- /.modal-dialog -->
 </div> --}}
 

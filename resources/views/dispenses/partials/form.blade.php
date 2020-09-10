@@ -20,7 +20,7 @@
       <div class="col-md-12">
         <div class="input-field  col">
           <select name="font_id" class="form-control">
-            <option value="">Selecione o processo relacionado a esta despesa</option>
+            <option value="">Selecione a fonte destadespesa</option>
             @foreach ($fonts as $font)
             <option value=" {{$font->id}}">{{ $font->nome }}</option>
             @endforeach
@@ -33,7 +33,7 @@
 
       <div class="col-md-6">
         <div class="input-field  col">
-          <input id="data" type="text" class="validate" name="data" value="{{$action->data ??  old('data') }}">
+          <input id="data" type="date" class="validate" name="data" value="{{$dispense->data ??  old('data') }}">
           <label for="data">Data</label>
           @error('data')
           <p class="text-danger">{{$message}}</p>
@@ -43,7 +43,7 @@
 
       <div class="col-md-6">
         <div class="input-field  col">
-          <input id="valor" type="text" class="validate" name="valor" value="{{$action->valor ??  old('valor') }}">
+          <input id="valor" type="text" class="validate" name="valor" value="{{$dispense->valor ??  old('valor') }}">
           <label for="valor">Valor</label>
 
           @error('valor')
@@ -57,7 +57,7 @@
     <div class="col-md-2">
       <div class="card-footer text-center">
         <button type="submit" class="btn btn-outline-primary">
-          @if (isset($action))
+          @if (isset($dispense))
           <i class='fas fa-user-edit'> </i>Atualizar
           @else
           <i class='fas fa-save'> </i> Cadastrar
@@ -65,14 +65,14 @@
         </button>
         <hr>
         <div class="card">
-          <a href="{{ route('action.index')}}" class="text-center"> Ver
+          <a href="{{ route('dispense.index')}}" class="text-center"> Ver
             Listagem
             geral</a>
         </div>
 
 
-        @isset($action)
-        <a href="{{ route('action.delete', $action->id)}}" class="btn btn-danger btn-sm"> <i
+        @isset($dispense)
+        <a href="{{ route('dispense.delete', $dispense->id)}}" class="btn btn-danger btn-sm"> <i
             class="fas fa-trash"></i>Eliminar</a>
         @endisset
       </div>
