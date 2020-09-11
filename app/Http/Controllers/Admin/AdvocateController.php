@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 class AdvocateController extends Controller
 {
   //
-
   private $repository;
 
 
