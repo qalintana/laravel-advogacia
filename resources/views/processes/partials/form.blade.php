@@ -4,13 +4,15 @@
     <div class="row">
 
       <div class="col-md-12">
+
         <div class="input-field  col">
-          <select name="client_id" class="form-control">
-            <option value="">Selecione o cliente</option>
+          <input type="text" name="client_id" id="client_id" list="clientes" class="form-control">
+          <label for="client_id">Cliente</label>
+          <datalist id="clientes">
             @foreach ($clients as $client)
-            <option value=" {{$client->id}}">{{ $client->nome }}</option>
+            <option value=" {{$client->nome}}/{{$client->id}}">{{ $client->nome }}</option>
             @endforeach
-          </select>
+          </datalist>
           @error('client_id')
           <p class="text-danger">Selecione um cliente válido</p>
           @enderror
@@ -18,45 +20,59 @@
       </div>
 
       <div class="col-md-12">
-        <div class="input-field  col">
-          <select name="escritory_id" class="form-control">
-            <option value="">Selecione o escritório</option>
-            @foreach ($escritories as $escritory)
-            <option value=" {{$escritory->id}}">{{ $escritory->nome }}</option>
-            @endforeach
-          </select>
-          @error('escritory_id')
-          <p class="text-danger">Selecione um escritório válido</p>
-          @enderror
-        </div>
+
       </div>
 
       <div class="col-md-12">
-        <div class="input-field  col">
-          <select name="type_id" class="form-control">
-            <option value="">Selecione o tipo de processo</option>
-            @foreach ($types as $type)
-            <option value=" {{$type->id}}">{{ $type->nome }}</option>
-            @endforeach
-          </select>
-          @error('type_id')
-          <p class="text-danger">Selecione um tipo de processo válido</p>
-          @enderror
+        <div class="row">
+          <div class="input-field  col col-md-4">
+            <input type="text" name="escritory_id" class="form-control" id="escritory_id" list="escritorios">
+            <label id="escritory_id">Escritório</label>
+            <datalist id="escritorios">
+              @foreach ($escritories as $escritory)
+              <option value="{{ $escritory->nome }}/{{$escritory->id}}"></option>
+              @endforeach
+            </datalist>
+            @error('escritory_id')
+            <p class="text-danger">Selecione um escritório válido</p>
+            @enderror
+          </div>
+
+          <div class="input-field  col col-md-4">
+            <input type="text" name="type_id" class="form-control" id="tipo" list="tipos">
+            <label for="tipo">Tipo de processo</label>
+
+            <datalist id="tipos">
+              @foreach ($types as $type)
+              <option value="{{$type->nome}}/{{$type->id}}"></option>
+              @endforeach
+            </datalist>
+
+            @error('type_id')
+            <p class="text-danger">Selecione um tipo de processo válido</p>
+            @enderror
+          </div>
+
+          <div class="input-field  col-md-4">
+            <input type="text" name="state_id" class="form-control" id="estado" list="estados">
+            <label for="estado">Estado do processo</label>
+
+            <datalist id="estados">
+              @foreach ($states as $state)
+              <option value="{{$state->nome}}/{{$state->id}}"></option>
+              @endforeach
+            </datalist>
+
+            @error('state_id')
+            <p class="text-danger">Selecione um estado válido</p>
+            @enderror
+          </div>
         </div>
+
       </div>
 
       <div class="col-md-12">
-        <div class="input-field  col">
-          <select name="state_id" class="form-control">
-            <option value="">Selecione o estado do processo</option>
-            @foreach ($states as $state)
-            <option value=" {{$state->id}}">{{ $state->nome }}</option>
-            @endforeach
-          </select>
-          @error('state_id')
-          <p class="text-danger">Selecione um estado válido</p>
-          @enderror
-        </div>
+
       </div>
 
       <div class="col-md-6">

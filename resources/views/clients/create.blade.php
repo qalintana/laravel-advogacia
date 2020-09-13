@@ -13,7 +13,6 @@
   <i class="fas fa-arrow-right mt-2 text-blue"></i>
   &nbsp;&nbsp;
   <li class="breadcrumb-tem text-bold"> <a href="{{ route('client.index')}}"> Registo de novo cliente</a></li>
-
 </ol>
 
 {{-- <div class="card text-white" style="background: #232632">
