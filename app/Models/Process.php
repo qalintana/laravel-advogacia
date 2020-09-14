@@ -21,8 +21,13 @@ class Process extends Model
     'state_id'
   ];
 
-  public function states()
+  public function state()
   {
-    return $this->hasMany(State::class);
+    return $this->belongsTo(State::class);
+  }
+
+  public function escritory()
+  {
+    return $this->belongsTo(Escritory::class);
   }
 }

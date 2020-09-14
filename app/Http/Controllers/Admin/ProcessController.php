@@ -57,9 +57,10 @@ class ProcessController extends Controller
 
   public function show($id)
   {
-    if (!$process = $this->repository->find($id)) {
+    if (!$process = $this->repository->with('state')->find($id)) {
       return redirect()->back();
     }
+    dd($process);
 
     return view('processes.show', compact('process'));
   }

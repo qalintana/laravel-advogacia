@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateClient;
 use App\Models\Client;
+use App\Models\State;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -53,7 +54,7 @@ class ClientController extends Controller
     if (!$client = $this->repository->with('processes')->latest()->find($id)) {
       return redirect()->back();
     }
-    dd($client->processes()->with('states'));
+    $processes = $client->processes();
 
     return view('clients.show', compact('client'));
   }

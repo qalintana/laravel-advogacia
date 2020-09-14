@@ -11,6 +11,6 @@ class State extends Model
 
   public function processes()
   {
-    return $this->belongsTo(Process::class);
+    return $this->hasMany(Process::class);
   }
 }

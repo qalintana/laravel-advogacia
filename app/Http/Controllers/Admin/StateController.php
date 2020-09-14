@@ -52,9 +52,10 @@ class StateController extends Controller
 
   public function show($id)
   {
-    if (!$state = $this->repository->find($id)) {
+    if (!$state = $this->repository->with('processes')->find($id)) {
       return redirect()->back();
     }
+    dd($state);
 
     return view('states.show', compact('state'));
   }

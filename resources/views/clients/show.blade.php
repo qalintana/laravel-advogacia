@@ -37,25 +37,19 @@
               <hr>
               <p> <strong>Nome Completo: </strong> {{$client->nome}}</p>
               <p> <strong>Apelido: </strong> {{$client->apelido}}</p>
-              <p> <strong>E-mail: </strong> {{$client->email}}</p>
+              <p> <strong>E-mail: </strong> <i class="fas fa-mail-forward"></i> {{$client->email}}</p>
               <p> <strong>NIF: </strong> {{$client->nif}}</p>
               <p> <strong>Fraguesia: </strong> {{$client->fraguesia}}</p>
               <p> <strong>Concelho: </strong> {{$client->concelho}}</p>
-              <p> <strong>Contactos : </strong> {{$client->contacto1}}
-                {{ $client->contacto2 ? ' '.$client->contacto2 : '' }}
+              <p class="text-blue"> <strong class="text-dark">Contactos : </strong>
+                &nbsp;
+                &nbsp;<i class='fas fa-phone-alt'></i>&nbsp;{{$client->contacto1}}
+                {!! $client->contacto2 ? "&nbsp;&nbsp;<strong class='text-blue'> <i
+                    class='fas fa-phone-alt'></i></strong>
+                &nbsp;".$client->contacto2 : '' !!}
               </p>
             </div>
 
-            <div class="col-md-6">
-              <h4 class="text-primary">Histórico</h4>
-              <hr>
-              @foreach ($client->processes as $process)
-              <a href="{{ route('process.show', $process->id)}}"> <strong>Processo: </strong>
-                {{$process->id < 10? '00'.$process->id : $process->id }}-{{$process->states()->id}}</a>
-              <hr>
-              @endforeach
-
-            </div>
 
           </div>
           {{-- form create client --}}
@@ -74,10 +68,47 @@
           </p>
 
         </div>
+
+
       </div>
       <!-- /.modal-content -->
     </div>
+
+
+    <div class="col-md-6">
+      <h4 class="text-primary">Histórico</h4>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <th>Processo </th>
+          <th>Estado </th>
+          <th>Escritório </th>
+        </thead>
+        <tbody>
+          @foreach ($client->processes as $process)
+          <tr>
+            <td>
+              {{$process->id < 10? '00'.$process->id : $process->id }}
+            </td>
+            <td>
+              {{$process->state->nome}}
+            </td>
+
+            <td>
+              {{$process->escritory->nome ?? 'EM ANÁLISE'}}
+            </td>
+          </tr>
+
+          <hr>
+          @endforeach
+        </tbody>
+
+      </table>
+
+
+    </div>
   </div>
+
+
 </div>
 
 {{-- modals --}}
