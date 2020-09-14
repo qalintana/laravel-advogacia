@@ -4,10 +4,14 @@
     <div class="row">
 
       <div class="col-md-12">
-
-        <div class="input-field  col">
+        <div class="input-field  col-md-12">
           <input type="text" name="client_id" id="client_id" list="clientes" class="form-control">
-          <label for="client_id">Cliente</label>
+          <label for="client_id">
+            <div class="ml-2">
+              Cliente &nbsp;
+              <button class="btn btn-sm btn-primary"><i class="fas fa-plus-circle"></i></button>
+            </div>
+          </label>
           <datalist id="clientes">
             @foreach ($clients as $client)
             <option value=" {{$client->nome}}/{{$client->id}}">{{ $client->nome }}</option>
@@ -17,26 +21,33 @@
           <p class="text-danger">Selecione um cliente válido</p>
           @enderror
         </div>
-      </div>
-
-      <div class="col-md-12">
 
       </div>
+
+
 
       <div class="col-md-12">
         <div class="row">
-          <div class="input-field  col col-md-4">
-            <input type="text" name="escritory_id" class="form-control" id="escritory_id" list="escritorios">
-            <label id="escritory_id">Escritório</label>
-            <datalist id="escritorios">
-              @foreach ($escritories as $escritory)
-              <option value="{{ $escritory->nome }}/{{$escritory->id}}"></option>
-              @endforeach
-            </datalist>
-            @error('escritory_id')
-            <p class="text-danger">Selecione um escritório válido</p>
-            @enderror
+          <div class="col-md-4">
+            <div class="input-field  col">
+              <input type="text" name="escritory_id" class="form-control" id="escritory_id" list="escritorios">
+              <label id="escritory_id">
+                <div class="ml-2">
+                  Escritório &nbsp;
+                  <button class="btn btn-sm btn-primary"><i class="fas fa-plus-circle"></i></button>
+                </div>
+              </label>
+              <datalist id="escritorios">
+                @foreach ($escritories as $escritory)
+                <option value="{{ $escritory->nome }}/{{$escritory->id}}"></option>
+                @endforeach
+              </datalist>
+              @error('escritory_id')
+              <p class="text-danger">Selecione um escritório válido</p>
+              @enderror
+            </div>
           </div>
+
 
           <div class="input-field  col col-md-4">
             <input type="text" name="type_id" class="form-control" id="tipo" list="tipos">
@@ -68,48 +79,52 @@
             @enderror
           </div>
         </div>
-
       </div>
 
       <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="input-field  col">
+              <input id="valor" type="text" class="validate" name="valor" value="{{$process->valor ??  old('valor') }}">
+              <label for="valor">Valor</label>
 
-      </div>
+              @error('valor')
+              <p class="text-danger">{{$message}}</p>
+              @enderror
+            </div>
+          </div>
 
-      <div class="col-md-6">
-        <div class="input-field  col">
-          <input id="valor" type="text" class="validate" name="valor" value="{{$process->valor ??  old('valor') }}">
-          <label for="valor">Valor</label>
+          <div class="col-md-4">
+            <div class="input-field  col">
+              <input id="valor_alcancado" type="text" class="validate" name="valor_alcancado"
+                value="{{$process->valor_alcancado ??  old('valor_alcancado') }}">
+              <label for="valor_alcancado">Valor Alcançado</label>
 
-          @error('valor')
-          <p class="text-danger">{{$message}}</p>
-          @enderror
+              @error('valor_alcancado')
+              <p class="text-danger">{{$message}}</p>
+              @enderror
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="input-field  col">
+              <input id="contraparte" type="text" class="validate" name="contraparte"
+                value="{{$process->contraparte ??  old('contraparte') }}">
+              <label for="contraparte">Contraparte</label>
+
+              @error('contraparte')
+              <p class="text-danger">{{$message}}</p>
+              @enderror
+            </div>
+          </div>
         </div>
+
       </div>
 
-      <div class="col-md-6">
-        <div class="input-field  col">
-          <input id="valor_alcancado" type="text" class="validate" name="valor_alcancado"
-            value="{{$process->valor_alcancado ??  old('valor_alcancado') }}">
-          <label for="valor_alcancado">Valor Alcançado</label>
 
-          @error('valor_alcancado')
-          <p class="text-danger">{{$message}}</p>
-          @enderror
-        </div>
+      <div class="row">
+
       </div>
-
-      <div class="col-md-6">
-        <div class="input-field  col">
-          <input id="contraparte" type="text" class="validate" name="contraparte"
-            value="{{$process->contraparte ??  old('contraparte') }}">
-          <label for="contraparte">Contraparte</label>
-
-          @error('contraparte')
-          <p class="text-danger">{{$message}}</p>
-          @enderror
-        </div>
-      </div>
-
       <div class="col-md-6">
         <div class="input-field  col">
           <input id="data_abertura" type="date" class="validate" name="data_abertura"
@@ -184,14 +199,14 @@
       </button>
       <hr>
       <div class="card">
-        <a href="{{ route('avence.index')}}" class="text-center"> Ver
+        <a href="{{ route('process.index')}}" class="text-center"> Ver
           Listagem
           geral</a>
       </div>
 
 
-      @isset($avence)
-      <a href="{{ route('avence.delete', $process->id)}}" class="btn btn-danger btn-sm"> <i
+      @isset($process)
+      <a href="{{ route('process.delete', $process->id)}}" class="btn btn-danger btn-sm"> <i
           class="fas fa-trash"></i>Eliminar</a>
       @endisset
     </div>

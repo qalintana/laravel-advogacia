@@ -29,17 +29,17 @@ class ProcessController extends Controller
 
   public function index()
   {
-    $processes = $this->repository->paginate(15);
+    $processes = $this->repository->latest()->paginate(15);
     return view('processes.index', compact('processes'));
   }
 
 
   public function create()
   {
-    $escritories = $this->escritory->all();
-    $types = $this->type->all();
-    $clients = $this->client->all();
-    $states = $this->state->all();
+    $escritories = $this->escritory->latest()->get();
+    $types = $this->type->latest()->get();
+    $clients = $this->client->latest()->get();
+    $states = $this->state->latest()->get();
     return view('processes.create', compact('clients', 'escritories', 'types', 'states'));
   }
 
@@ -70,10 +70,10 @@ class ProcessController extends Controller
     if (!$process = $this->repository->find($id)) {
       return redirect()->back();
     }
-    $escritories = $this->escritory->all();
-    $types = $this->type->all();
-    $clients = $this->client->all();
-    $states = $this->state->all();
+    $escritories = $this->escritory->latest()->get();
+    $types = $this->type->latest()->get();
+    $clients = $this->client->latest()->get();
+    $states = $this->state->latest()->get();
 
     return view('processes.edit', compact('process', 'clients', 'types', 'escritories', 'states'));
   }
