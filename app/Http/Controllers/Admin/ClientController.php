@@ -50,9 +50,10 @@ class ClientController extends Controller
 
   public function show($id)
   {
-    if (!$client = $this->repository->find($id)) {
+    if (!$client = $this->repository->with('processes')->latest()->find($id)) {
       return redirect()->back();
     }
+    dd($client->processes()->with('states'));
 
     return view('clients.show', compact('client'));
   }

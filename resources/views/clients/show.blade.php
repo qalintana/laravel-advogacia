@@ -25,24 +25,41 @@
 
 @section('content')
 
-<div class="row">
+<div class="row mt-5">
   <div class="col-md-12" style="margin-top: -25px">
     <div class="card card-blue">
       <div class="row">
         <div class="card-body">
 
-          {{-- form create client --}}
-          <div class="text-center">
-            <p> <strong>Nome Completo: </strong> {{$client->nome}}</p>
-            <p> <strong>Apelido: </strong> {{$client->apelido}}</p>
-            <p> <strong>E-mail: </strong> {{$client->email}}</p>
-            <p> <strong>NIF: </strong> {{$client->nif}}</p>
-            <p> <strong>Fraguesia: </strong> {{$client->fraguesia}}</p>
-            <p> <strong>Concelho: </strong> {{$client->concelho}}</p>
-            <p> <strong>Contactos : </strong> {{$client->contacto1}}
-              {{ $client->contacto2 ? ' '.$client->contacto2 : '' }}
-            </p>
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="text-primary">Dados Pessoais</h4>
+              <hr>
+              <p> <strong>Nome Completo: </strong> {{$client->nome}}</p>
+              <p> <strong>Apelido: </strong> {{$client->apelido}}</p>
+              <p> <strong>E-mail: </strong> {{$client->email}}</p>
+              <p> <strong>NIF: </strong> {{$client->nif}}</p>
+              <p> <strong>Fraguesia: </strong> {{$client->fraguesia}}</p>
+              <p> <strong>Concelho: </strong> {{$client->concelho}}</p>
+              <p> <strong>Contactos : </strong> {{$client->contacto1}}
+                {{ $client->contacto2 ? ' '.$client->contacto2 : '' }}
+              </p>
+            </div>
+
+            <div class="col-md-6">
+              <h4 class="text-primary">Histórico</h4>
+              <hr>
+              @foreach ($client->processes as $process)
+              <a href="{{ route('process.show', $process->id)}}"> <strong>Processo: </strong>
+                {{$process->id < 10? '00'.$process->id : $process->id }}-{{$process->states()->id}}</a>
+              <hr>
+              @endforeach
+
+            </div>
+
           </div>
+          {{-- form create client --}}
+
 
           <p class="text-center">
             <a href="{{ route('client.index')}}" class="btn btn-default btn-sm"> <i class="fas fa-list"></i>

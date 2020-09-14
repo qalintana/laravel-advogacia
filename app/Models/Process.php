@@ -20,4 +20,9 @@ class Process extends Model
     'type_id',
     'state_id'
   ];
+
+  public function states()
+  {
+    return $this->hasMany(State::class);
+  }
 }

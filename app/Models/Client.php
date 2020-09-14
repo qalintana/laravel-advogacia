@@ -20,4 +20,9 @@ class Client extends Model
     "contacto1",
     "contacto2"
   ];
+
+  public function processes()
+  {
+    return $this->hasMany(Process::class);
+  }
 }

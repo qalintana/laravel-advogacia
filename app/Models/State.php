@@ -8,4 +8,9 @@ class State extends Model
 {
   //
   protected $fillable = ['nome'];
+
+  public function processes()
+  {
+    return $this->belongsTo(Process::class);
+  }
 }
