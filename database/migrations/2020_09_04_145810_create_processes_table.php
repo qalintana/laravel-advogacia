@@ -13,6 +13,7 @@ class CreateProcessesTable extends Migration
    */
   public function up()
   {
+
     Schema::create('processes', function (Blueprint $table) {
       $table->id();
       $table->date('data_abertura');

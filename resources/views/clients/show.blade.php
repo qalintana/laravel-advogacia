@@ -12,7 +12,8 @@
   &nbsp;&nbsp;
   <i class="fas fa-arrow-right mt-2 text-blue"></i>
   &nbsp;&nbsp;
-  <li class="breadcrumb-tem text-bold"> <a href="{{ route('client.index')}}"> Registo de novo cliente</a></li>
+  <li class="breadcrumb-tem text-bold"> <a href="{{ route('client.index')}}">
+      {{ $client->nome}}</a></li>
 </ol>
 
 {{-- <div class="card text-white" style="background: #232632">
@@ -54,19 +55,18 @@
           </div>
           {{-- form create client --}}
 
-
+          {{--
           <p class="text-center">
             <a href="{{ route('client.index')}}" class="btn btn-default btn-sm"> <i class="fas fa-list"></i>
-              Listagem geral </a>
-            <a href="{{ route('client.create')}}" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i>
-              Cadastrar </a>
-            <a href="{{ route('client.edit', $client->id)}}" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i>
-              Editar </a>
-            <a href="{{ route('client.delete', $client->id)}}" class="btn btn-danger btn-sm"> <i
-                class="fas fa-trash"></i>Eliminar </a>
-            {{-- End form create client --}}
-          </p>
-
+          Listagem geral </a>
+          <a href="{{ route('client.create')}}" class="btn btn-success btn-sm"> <i class="fas fa-plus-circle"></i>
+            Cadastrar </a>
+          <a href="{{ route('client.edit', $client->id)}}" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i>
+            Editar </a>
+          <a href="{{ route('client.delete', $client->id)}}" class="btn btn-danger btn-sm"> <i
+              class="fas fa-trash"></i>Eliminar </a>
+          {{-- End form create client --}}
+          {{-- </p> --}}
         </div>
 
 
@@ -75,37 +75,49 @@
     </div>
 
 
-    <div class="col-md-6">
-      <h4 class="text-primary">Histórico</h4>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <th>Processo </th>
-          <th>Estado </th>
-          <th>Escritório </th>
-        </thead>
-        <tbody>
-          @foreach ($client->processes as $process)
-          <tr>
-            <td>
-              {{$process->id < 10? '00'.$process->id : $process->id }}
-            </td>
-            <td>
-              {{$process->state->nome}}
-            </td>
+    <div class="card">
+      <div class="col-md-12">
+        <h4 class="text-primary">Histórico</h4>
+        <table class="table table-bordered table-striped">
+          <thead class="table-info">
+            <th>Processo </th>
+            <th>Estado </th>
+            <th>Escritório </th>
+          </thead>
+          <tbody>
+            @foreach ($client->processes as $process)
+            <tr>
+              <td>
+                <a href="{{ route('process.show', $process->id)}}">
+                  {{$process->id < 10 ? '00'.$process->id : $process->id }}
+                </a>
+              </td>
+              <td>
+                <a href="{{ route('process.show', $process->id)}}">
+                  {{$process->state->nome}}
+                </a>
+              </td>
 
-            <td>
-              {{$process->escritory->nome ?? 'EM ANÁLISE'}}
-            </td>
-          </tr>
+              <td>
+                <a href="{{ route('process.show', $process->id)}}">
+                  {{$process->escritory->nome ?? 'EM ANÁLISE'}}
+                </a>
 
-          <hr>
-          @endforeach
-        </tbody>
-
-      </table>
+              </td>
 
 
+            </tr>
+
+            <hr>
+            @endforeach
+          </tbody>
+
+        </table>
+
+
+      </div>
     </div>
+
   </div>
 
 
