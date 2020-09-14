@@ -21,10 +21,7 @@
           <p class="text-danger">Selecione um cliente válido</p>
           @enderror
         </div>
-
       </div>
-
-
 
       <div class="col-md-12">
         <div class="row">
